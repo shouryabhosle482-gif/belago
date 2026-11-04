@@ -5,6 +5,7 @@ if (!token) {
 }
 
 async function loadDashboard() {
+  if (!token) return;
   try {
     const response = await fetch('/api/dashboard', {
       headers: { Authorization: `Bearer ${token}` }

@@ -200,6 +200,53 @@ const listings = [
   }
 ];
 
+function isRecordActiveListing(item) {
+  if (!item) return false;
+  if (item.deleted || item.isDeleted || item.deletedAt) return false;
+  if (item.status === 'draft' || item.status === 'deleted' || item.status === 'rejected' || item.status === 'suspended' || item.status === 'expired' || item.status === 'sold') return false;
+  if (item.published === false || item.isPublished === false) return false;
+  if (item.expiredAt && new Date(item.expiredAt) <= new Date()) return false;
+  return String(item.status || 'active').toLowerCase() === 'active' || item.isPublished === true;
+}
+
+function isPublishedListing(item) {
+  if (!item) return false;
+  if (item.deleted || item.isDeleted || item.deletedAt) return false;
+  if (item.status === 'draft' || item.status === 'deleted' || item.status === 'rejected' || item.status === 'suspended' || item.status === 'expired') return false;
+  if (item.published === false || item.isPublished === false) return false;
+  return ['active', 'sold', 'published'].includes(String(item.status || 'active').toLowerCase()) || item.isPublished === true;
+}
+
+function isEligibleStudentAccount(user) {
+  if (!user) return false;
+  if (user.deleted || user.isDeleted || user.deletedAt || user.isSuspended || user.suspended) return false;
+  if (user.role && /admin/i.test(user.role)) return false;
+  if (!user.email || !user.fullName || !user.college || !user.area) return false;
+  return true;
+}
+
+function isVerifiedSeller(user) {
+  if (!isEligibleStudentAccount(user)) return false;
+  if (user.verified !== true && user.sellerVerified !== true) return false;
+  if (user.suspended || user.isSuspended || user.isDeleted || user.deleted) return false;
+  return true;
+}
+
+function getHomepageStatistics() {
+  const totalListings = listings.filter(isPublishedListing).length;
+  const activeListings = listings.filter(isRecordActiveListing).length;
+  const registeredStudents = users.filter(isEligibleStudentAccount).length;
+  const verifiedSellers = users.filter(isVerifiedSeller).length;
+
+  return {
+    totalListings,
+    activeListings,
+    registeredStudents,
+    verifiedSellers,
+    lastUpdated: new Date().toISOString()
+  };
+}
+
 function signToken(payload) {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: TOKEN_TTL });
 }
@@ -228,6 +275,23 @@ app.use('/api', rateLimit({
 
 app.get('/api/health', (req, res) => {
   res.json({ ok: true, message: 'BELAGO API is running', timestamp: new Date().toISOString() });
+});
+
+app.get('/api/statistics/homepage', (req, res) => {
+  try {
+    const data = getHomepageStatistics();
+    res.json({
+      success: true,
+      data,
+      message: 'Homepage statistics retrieved successfully.'
+    });
+  } catch (error) {
+    console.error('Homepage statistics error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Unable to load homepage statistics right now.'
+    });
+  }
 });
 
 app.get('/api/categories', (req, res) => {

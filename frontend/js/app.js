@@ -1,12 +1,88 @@
 const apiBase = '/api';
 
+const statsStatusEl = document.getElementById('statsStatus');
+const homepageStatsEls = {
+  totalListings: document.querySelector('[data-stat="totalListings"]'),
+  activeListings: document.querySelector('[data-stat="activeListings"]'),
+  registeredStudents: document.querySelector('[data-stat="registeredStudents"]'),
+  verifiedSellers: document.querySelector('[data-stat="verifiedSellers"]')
+};
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
-async function fetchJson(url) {
-  const response = await fetch(url);
+const formatStatValue = (value) => {
+  const numeric = Number(value) || 0;
+  if (numeric >= 1000) {
+    return new Intl.NumberFormat('en-IN', {
+      notation: 'compact',
+      maximumFractionDigits: 1
+    }).format(numeric);
+  }
+  return new Intl.NumberFormat('en-IN').format(numeric);
+};
+
+async function fetchJson(url, options = {}) {
+  const response = await fetch(url, options);
   if (!response.ok) throw new Error('Request failed');
   return response.json();
 }
+
+function setStatsLoading(isLoading) {
+  document.querySelectorAll('.stat-card').forEach((card) => {
+    card.classList.toggle('is-loading', isLoading);
+  });
+}
+
+function renderHomepageStats(response) {
+  const data = response?.data || {};
+  Object.entries(homepageStatsEls).forEach(([key, el]) => {
+    if (!el) return;
+    const value = data[key];
+    el.textContent = typeof value === 'number' ? formatStatValue(value) : '--';
+  });
+
+  const lastUpdated = data.lastUpdated ? new Date(data.lastUpdated).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : 'now';
+  if (statsStatusEl) {
+    statsStatusEl.textContent = `Updated ${lastUpdated}`;
+  }
+  setStatsLoading(false);
+}
+
+function renderUnavailableStats() {
+  Object.values(homepageStatsEls).forEach((el) => {
+    if (el) el.textContent = '--';
+  });
+
+  if (statsStatusEl) {
+    statsStatusEl.textContent = 'Live stats unavailable right now. Please try again shortly.';
+  }
+
+  setStatsLoading(false);
+}
+
+async function loadHomepageStats() {
+  const cards = document.querySelectorAll('.stat-card');
+  if (cards.length) {
+    setStatsLoading(true);
+    if (statsStatusEl) statsStatusEl.textContent = 'Loading live marketplace numbers…';
+  }
+
+  try {
+    const stats = await fetchJson(`${apiBase}/statistics/homepage`);
+    if (stats?.success) {
+      renderHomepageStats(stats);
+      return;
+    }
+    throw new Error(stats?.message || 'Statistics could not be loaded');
+  } catch (error) {
+    console.error('Homepage statistics update failed', error);
+    renderUnavailableStats();
+  }
+}
+
+window.addEventListener('belago:stats-refresh', () => {
+  loadHomepageStats();
+});
 
 function renderCategoryCards(items) {
   const container = document.getElementById('categoryGrid');
@@ -81,4 +157,6 @@ document.getElementById('homeSearchForm')?.addEventListener('submit', (event) =>
   window.location.href = `/explore${value ? `?q=${encodeURIComponent(value)}` : ''}`;
 });
 
+loadHomepageStats();
+setInterval(() => loadHomepageStats(), 60000);
 loadHomeContent();

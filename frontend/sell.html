@@ -86,10 +86,14 @@
               <span>Area</span>
               <input type="text" id="itemArea" required />
             </label>
-            <label>
-              <span>Image URL</span>
-              <input type="url" id="itemImage" placeholder="https://..." />
+            <label class="upload-field">
+              <span>Product image</span>
+              <input type="file" id="itemImageUpload" accept="image/*" />
             </label>
+          </div>
+
+          <div class="image-preview-box" id="imagePreviewBox" hidden>
+            <img id="imagePreview" alt="Listing preview" />
           </div>
 
           <button type="submit" class="btn btn-primary">Publish Listing</button>

@@ -1,0 +1,16 @@
+{
+  "name": "BELAGO",
+  "short_name": "BELAGO",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050909",
+  "theme_color": "#050909",
+  "description": "Student marketplace for Belagavi campus buying, selling and discovery.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

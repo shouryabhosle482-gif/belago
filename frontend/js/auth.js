@@ -6,6 +6,7 @@ const getToken = () => localStorage.getItem('belagoToken');
 async function setAuth(token, user) {
   localStorage.setItem('belagoToken', token);
   localStorage.setItem('belagoUser', JSON.stringify(user));
+  window.dispatchEvent(new CustomEvent('belago:stats-refresh'));
   window.location.href = '/dashboard';
 }
 

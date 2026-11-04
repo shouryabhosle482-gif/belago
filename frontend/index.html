@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BELAGO | Your Campus. Your Marketplace.</title>
     <meta name="description" content="BELAGO student marketplace for campus buying, selling and discovering student essentials in Belagavi." />
+    <meta name="theme-color" content="#101110" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
@@ -18,19 +20,16 @@
           <span>BELAGO</span>
         </a>
 
-        <nav class="main-nav">
-          <a href="/">Home</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="/" class="active">Home</a>
           <a href="/explore">Explore</a>
           <a href="#categories">Categories</a>
-          <a href="#how-it-works">How It Works</a>
           <a href="/sell">Sell</a>
           <a href="#about">About</a>
         </nav>
 
         <div class="nav-actions">
-          <button class="icon-button" aria-label="Search">⌕</button>
-          <button class="icon-button" aria-label="Favorites">♡</button>
-          <button class="icon-button" aria-label="Messages">✉</button>
+          <a href="/explore" class="nav-link" aria-label="Search marketplace">Explore</a>
           <a href="/login" class="nav-link">Login</a>
           <a href="/register" class="nav-link nav-link--primary">Sign Up</a>
           <a href="/sell" class="btn btn-primary">List Item</a>
@@ -43,35 +42,46 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <span class="pill">BELAGO STUDENT MARKETPLACE</span>
-            <h1>YOUR CAMPUS.<br /> <span class="theme-text">YOUR MARKETPLACE.</span></h1>
+            <h1>Find it. Buy it. Sell it.<br /> <span class="theme-text">All on campus.</span></h1>
             <p>
-              Buy, sell and discover affordable student essentials within your college community.
+              Discover affordable student essentials, find great deals and give your old stuff a new home in Belagavi, Karnataka.
             </p>
 
             <form class="hero-search" id="homeSearchForm">
-              <input type="text" id="homeSearchInput" placeholder="Search books, notes, calculators, electronics..." />
+              <input type="text" id="homeSearchInput" placeholder="Search books, phones, bikes, electronics..." />
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
 
+            <div class="location-pill">Belagavi, Karnataka</div>
+
             <div class="hero-actions">
               <a href="/explore" class="btn btn-primary">Explore Marketplace</a>
-              <a href="/sell" class="btn btn-secondary">Start Selling</a>
+              <a href="/sell" class="btn btn-secondary">Sell an Item</a>
             </div>
 
-            <div class="stats-row">
-              <div>
-                <strong id="statListings">2.4K+</strong>
-                <span>Active Listings</span>
+            <div class="stats-row" id="homepageStats" aria-live="polite">
+              <div class="stat-card is-loading">
+                <div class="stat-icon" aria-hidden="true">▣</div>
+                <small>Total Listings</small>
+                <strong data-stat="totalListings">--</strong>
               </div>
-              <div>
-                <strong id="statStudents">18K+</strong>
-                <span>Registered Students</span>
+              <div class="stat-card is-loading">
+                <div class="stat-icon" aria-hidden="true">◌</div>
+                <small>Active Listings</small>
+                <strong data-stat="activeListings">--</strong>
               </div>
-              <div>
-                <strong id="statSellers">980+</strong>
-                <span>Verified Sellers</span>
+              <div class="stat-card is-loading">
+                <div class="stat-icon" aria-hidden="true">⌂</div>
+                <small>Registered Students</small>
+                <strong data-stat="registeredStudents">--</strong>
+              </div>
+              <div class="stat-card is-loading">
+                <div class="stat-icon" aria-hidden="true">✓</div>
+                <small>Verified Sellers</small>
+                <strong data-stat="verifiedSellers">--</strong>
               </div>
             </div>
+            <div class="stats-status" id="statsStatus">Loading live marketplace numbers…</div>
           </div>
 
           <div class="hero-visual">
@@ -236,6 +246,13 @@
         </div>
       </section>
     </main>
+
+    <nav class="mobile-bar" aria-label="Mobile navigation">
+      <a href="/">Home</a>
+      <a href="/explore">Explore</a>
+      <a href="/sell">Sell</a>
+      <a href="/dashboard">Dashboard</a>
+    </nav>
 
     <footer class="site-footer">
       <div class="container footer-grid">
