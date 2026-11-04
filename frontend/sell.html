@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell an Item | BELAGO</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="sell-page">
+    <header class="site-header lite-header">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">
+          <span class="brand-mark">B</span>
+          <span>BELAGO</span>
+        </a>
+        <div class="nav-actions">
+          <a href="/explore" class="nav-link">Marketplace</a>
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="sell-wrap">
+        <div class="section-head">
+          <p class="eyebrow">SELL</p>
+          <h1>List a new item</h1>
+        </div>
+
+        <form id="sellForm" class="sell-form">
+          <div class="two-col">
+            <label>
+              <span>Product title</span>
+              <input type="text" id="itemTitle" required />
+            </label>
+            <label>
+              <span>Category</span>
+              <select id="itemCategory" required>
+                <option value="books">Books</option>
+                <option value="notes">Notes</option>
+                <option value="electronics">Electronics</option>
+                <option value="calculators">Calculators</option>
+                <option value="accessories">Accessories</option>
+                <option value="lab-materials">Lab Materials</option>
+                <option value="sports">Sports Equipment</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span>Description</span>
+            <textarea id="itemDescription" rows="5" required></textarea>
+          </label>
+
+          <div class="two-col">
+            <label>
+              <span>Price (₹)</span>
+              <input type="number" id="itemPrice" min="1" required />
+            </label>
+            <label>
+              <span>Original price (optional)</span>
+              <input type="number" id="itemOriginalPrice" min="0" />
+            </label>
+          </div>
+
+          <div class="two-col">
+            <label>
+              <span>Condition</span>
+              <select id="itemCondition">
+                <option>New</option>
+                <option>Like New</option>
+                <option>Good</option>
+                <option>Fair</option>
+                <option>Used</option>
+              </select>
+            </label>
+            <label>
+              <span>College</span>
+              <input type="text" id="itemCollege" required />
+            </label>
+          </div>
+
+          <div class="two-col">
+            <label>
+              <span>Area</span>
+              <input type="text" id="itemArea" required />
+            </label>
+            <label>
+              <span>Image URL</span>
+              <input type="url" id="itemImage" placeholder="https://..." />
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Publish Listing</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/js/sell.js"></script>
+  </body>
+</html>

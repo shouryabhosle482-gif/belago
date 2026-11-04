@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | BELAGO</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="dashboard-page">
+    <header class="site-header lite-header">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">
+          <span class="brand-mark">B</span>
+          <span>BELAGO</span>
+        </a>
+        <div class="nav-actions">
+          <a href="/explore" class="nav-link">Marketplace</a>
+          <a href="/sell" class="btn btn-primary">List Item</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container dashboard-shell">
+      <section class="dashboard-top">
+        <div>
+          <p class="eyebrow">MY ACCOUNT</p>
+          <h1>Student Dashboard</h1>
+        </div>
+        <button id="logoutBtn" class="btn btn-secondary" type="button">Logout</button>
+      </section>
+
+      <section class="stats-row dashboard-stats" id="dashboardStats"></section>
+      <section class="dashboard-grid">
+        <div class="dashboard-card">
+          <h3>My Listings</h3>
+          <div id="myListings"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

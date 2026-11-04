@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Marketplace | BELAGO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="dark-marketplace">
+    <header class="site-header lite-header">
+      <div class="container nav-wrap">
+        <a href="/" class="brand">
+          <span class="brand-mark">B</span>
+          <span>BELAGO</span>
+        </a>
+
+        <nav class="main-nav">
+          <a href="/">Home</a>
+          <a href="/explore" class="active">Explore</a>
+          <a href="#">Categories</a>
+          <a href="#">How It Works</a>
+          <a href="/sell">Sell</a>
+          <a href="#">About</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="/login" class="nav-link">Login</a>
+          <a href="/register" class="nav-link nav-link--primary">Sign Up</a>
+          <a href="/sell" class="btn btn-primary">List Item</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="marketplace-main">
+      <div class="container marketplace-shell">
+        <aside class="filters-panel">
+          <div class="filter-header">
+            <h3>Filters</h3>
+            <button type="button" class="filter-clear" id="clearFilters">Clear</button>
+          </div>
+
+          <div class="filter-group">
+            <label>Category</label>
+            <select id="categoryFilter">
+              <option value="all">All</option>
+              <option value="books">Books</option>
+              <option value="notes">Notes</option>
+              <option value="electronics">Electronics</option>
+              <option value="calculators">Calculators</option>
+              <option value="accessories">Accessories</option>
+              <option value="lab-materials">Lab Materials</option>
+              <option value="sports">Sports Equipment</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Condition</label>
+            <select id="conditionFilter">
+              <option value="">Any</option>
+              <option value="new">New</option>
+              <option value="like new">Like New</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="used">Used</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Price Range</label>
+            <div class="range-row">
+              <input id="minPrice" type="number" placeholder="Min" />
+              <input id="maxPrice" type="number" placeholder="Max" />
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label>College</label>
+            <input id="collegeFilter" type="text" placeholder="College or area" />
+          </div>
+
+          <div class="filter-group">
+            <label>Sort By</label>
+            <select id="sortFilter">
+              <option value="newest">Recently Added</option>
+              <option value="lowest">Lowest Price</option>
+              <option value="highest">Highest Price</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+        </aside>
+
+        <section class="results-panel">
+          <div class="results-topbar">
+            <div>
+              <p class="eyebrow">STUDENT ESSENTIALS</p>
+              <h1>BUY, SELL AND DISCOVER WITHIN YOUR STUDENT COMMUNITY.</h1>
+            </div>
+            <div class="view-controls">
+              <button class="chip active" type="button">Grid View</button>
+              <button class="chip" type="button">List View</button>
+            </div>
+          </div>
+
+          <div class="results-toolbar">
+            <form id="marketplaceSearch" class="search-inline">
+              <input type="text" id="searchInput" placeholder="Search textbooks, calculators, day-to-day essentials..." />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div class="results-meta"><span id="resultCount">0</span> items found</div>
+          </div>
+
+          <div class="listing-grid" id="marketplaceGrid"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="/js/explore.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | BELAGO</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-shell">
+      <div class="auth-card">
+        <div class="auth-badge">BELAGO</div>
+        <h1>Create your account</h1>
+        <p>Join the student community and start trading today.</p>
+
+        <form id="registerForm" class="auth-form">
+          <div class="two-col">
+            <label>
+              <span>Full name</span>
+              <input type="text" id="regName" required />
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" id="regPhone" required />
+            </label>
+          </div>
+
+          <label>
+            <span>Email</span>
+            <input type="email" id="regEmail" required />
+          </label>
+
+          <label>
+            <span>College</span>
+            <input type="text" id="regCollege" required />
+          </label>
+
+          <label>
+            <span>Area</span>
+            <input type="text" id="regArea" required />
+          </label>
+
+          <div class="two-col">
+            <label>
+              <span>Password</span>
+              <input type="password" id="regPassword" required />
+            </label>
+            <label>
+              <span>Confirm</span>
+              <input type="password" id="regConfirm" required />
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary wide">Create Account</button>
+        </form>
+
+        <div class="auth-links">
+          <a href="/login">Already have an account?</a>
+          <a href="/">Back home</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+  </body>
+</html>
