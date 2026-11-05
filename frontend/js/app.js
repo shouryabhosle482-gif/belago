@@ -88,12 +88,14 @@ function renderCategoryCards(items) {
   const container = document.getElementById('categoryGrid');
   if (!container) return;
 
-  const icons = ['B', 'M', 'S', 'C', 'A', 'L'];
-  container.innerHTML = items.slice(0, 12).map((item, index) => `
-    <a href="/explore?category=${encodeURIComponent(item.id)}" class="category-card">
-      <div class="icon-box">${icons[index % icons.length]}</div>
-      <h3>${item.name}</h3>
-      <small>${item.count} active listings</small>
+  container.innerHTML = items.slice(0, 6).map((item) => `
+    <a href="/explore?category=${encodeURIComponent(item.id)}" class="category-card" aria-label="Browse ${item.name}">
+      <img src="${item.image || 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80'}" alt="${item.name}" loading="lazy" />
+      <div class="category-copy">
+        <h3>${item.name}</h3>
+        <p>${item.description || 'Discover listings in this category.'}</p>
+        <small>${item.count ?? 0} active listings</small>
+      </div>
     </a>
   `).join('');
 }

@@ -20,18 +20,54 @@ const JWT_SECRET = process.env.JWT_SECRET || 'belago-dev-secret';
 const TOKEN_TTL = '7d';
 
 const categories = [
-  { id: 'books', name: 'Books', count: 54 },
-  { id: 'notes', name: 'Notes', count: 29 },
-  { id: 'electronics', name: 'Electronics', count: 41 },
-  { id: 'calculators', name: 'Calculators', count: 17 },
-  { id: 'accessories', name: 'Accessories', count: 24 },
-  { id: 'lab-materials', name: 'Lab Materials', count: 18 },
-  { id: 'sports', name: 'Sports Equipment', count: 12 },
-  { id: 'engineering', name: 'Engineering', count: 36 },
-  { id: 'medical', name: 'Medical', count: 19 },
-  { id: 'school', name: 'School', count: 22 },
-  { id: 'competitive-exams', name: 'Competitive Exams', count: 28 },
-  { id: 'other', name: 'Other Essentials', count: 33 }
+  {
+    id: 'used-textbooks-notes',
+    name: 'Used Textbooks & Notes',
+    count: 0,
+    description: 'Find affordable textbooks, handwritten notes and study materials.',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
+    subcategories: ['Engineering Textbooks', 'Science Textbooks', 'Commerce Textbooks', 'Arts and Humanities Books', 'Handwritten Notes', 'Printed Notes', 'Previous Year Question Papers', 'Competitive Exam Materials', 'Other Study Materials']
+  },
+  {
+    id: 'pg',
+    name: 'PG',
+    count: 0,
+    description: 'Find comfortable PG accommodation and rooms near your college.',
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
+    subcategories: ['Boys PG', 'Girls PG', 'Co-ed PG', 'Single Sharing', 'Double Sharing', 'Triple Sharing', 'Shared Rooms', 'Student Accommodation']
+  },
+  {
+    id: 'part-time-jobs',
+    name: 'Part-Time Jobs',
+    count: 0,
+    description: 'Discover flexible jobs and earning opportunities for students.',
+    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=80',
+    subcategories: ['Cafe and Restaurant Jobs', 'Retail Jobs', 'Campus Opportunities', 'Internships', 'Freelance Work', 'Tutoring', 'Data Entry', 'Weekend Jobs', 'Remote Part-Time Jobs']
+  },
+  {
+    id: 'events',
+    name: 'Events',
+    count: 0,
+    description: 'Explore college festivals, workshops and student events.',
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80',
+    subcategories: ['College Festivals', 'Technical Events', 'Cultural Events', 'Workshops', 'Hackathons', 'Competitions', 'Seminars', 'Music and Entertainment', 'Sports Events']
+  },
+  {
+    id: 'used-items',
+    name: 'Used Items',
+    count: 0,
+    description: 'Discover affordable pre-owned products and everyday essentials.',
+    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80',
+    subcategories: ['Study Equipment', 'Calculators', 'Bags', 'Stationery', 'Room Essentials', 'Kitchen Essentials', 'Cycles', 'Small Appliances', 'General Second-Hand Items']
+  },
+  {
+    id: 'tiffins',
+    name: 'Tiffins',
+    count: 0,
+    description: 'Find homemade meals and affordable student tiffin services.',
+    image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80',
+    subcategories: ['Daily Tiffin Services', 'Monthly Meal Plans', 'Breakfast', 'Lunch', 'Dinner', 'Vegetarian Meals', 'Non-Vegetarian Meals', 'Homemade Food', 'Weekly Meal Plans']
+  }
 ];
 
 function makeListingArt(label, accent, secondary = '#101b2f') {
@@ -87,118 +123,7 @@ const users = [
   }
 ];
 
-const listings = [
-  {
-    id: 'l_1',
-    title: 'Engineering Mathematics Vol 2',
-    description: 'Used for 2nd semester engineering. Clean condition, includes solved examples and index tabs.',
-    price: 350,
-    originalPrice: 650,
-    category: 'books',
-    condition: 'Good',
-    college: 'KLE Technological University',
-    area: 'Tilakwadi',
-    sellerId: 'u_1',
-    sellerName: 'Nisha Patil',
-    sellerVerified: true,
-    image: makeListingArt('BOOKS', '#f59e0b', '#7c3aed'),
-    images: [
-      makeListingArt('BOOKS', '#f59e0b', '#7c3aed'),
-      makeListingArt('STUDY', '#fbbf24', '#1d4ed8')
-    ],
-    createdAt: '2026-11-01T10:00:00.000Z',
-    status: 'active',
-    featured: true
-  },
-  {
-    id: 'l_2',
-    title: 'Casio FX-991EX Scientific Calculator',
-    description: 'Almost new calculator, perfect for engineering and exam prep. Comes with protective case.',
-    price: 1200,
-    originalPrice: 1750,
-    category: 'calculators',
-    condition: 'Like New',
-    college: 'Sanjay Ghodawat University',
-    area: 'Khanapur Road',
-    sellerId: 'u_2',
-    sellerName: 'Rohan Kadam',
-    sellerVerified: true,
-    image: makeListingArt('CALC', '#22c55e', '#0f766e'),
-    images: [
-      makeListingArt('CALC', '#22c55e', '#0f766e'),
-      makeListingArt('EXAMS', '#34d399', '#14532d')
-    ],
-    createdAt: '2026-11-02T12:00:00.000Z',
-    status: 'active',
-    featured: true
-  },
-  {
-    id: 'l_3',
-    title: 'Dell Inspiron 15 Laptop',
-    description: '8GB RAM, 256GB SSD, good battery health, ideal for coursework and presentations.',
-    price: 28000,
-    originalPrice: 42000,
-    category: 'electronics',
-    condition: 'Good',
-    college: 'KLE Technological University',
-    area: 'Shahpur',
-    sellerId: 'u_1',
-    sellerName: 'Nisha Patil',
-    sellerVerified: true,
-    image: makeListingArt('LAPTOP', '#38bdf8', '#312e81'),
-    images: [
-      makeListingArt('LAPTOP', '#38bdf8', '#312e81'),
-      makeListingArt('WORK', '#60a5fa', '#1e3a8a')
-    ],
-    createdAt: '2026-11-03T08:30:00.000Z',
-    status: 'active',
-    featured: false
-  },
-  {
-    id: 'l_4',
-    title: 'Anatomy Notes Bundle for MBBS',
-    description: 'Clean handwritten notes with diagrams, ideal exam revision for first-year MBBS students.',
-    price: 520,
-    originalPrice: 900,
-    category: 'notes',
-    condition: 'New',
-    college: 'Belagavi Medical College',
-    area: 'Near RPD',
-    sellerId: 'u_2',
-    sellerName: 'Rohan Kadam',
-    sellerVerified: true,
-    image: makeListingArt('MED', '#f472b6', '#7c2d12'),
-    images: [
-      makeListingArt('MED', '#f472b6', '#7c2d12'),
-      makeListingArt('NOTES', '#fb7185', '#4c1d95')
-    ],
-    createdAt: '2026-11-04T09:15:00.000Z',
-    status: 'active',
-    featured: true
-  },
-  {
-    id: 'l_5',
-    title: 'Urban Trek Backpack',
-    description: 'Water-resistant backpack for daily college commute, with padded straps and laptop sleeve.',
-    price: 1400,
-    originalPrice: 2200,
-    category: 'accessories',
-    condition: 'Used',
-    college: 'KLS Gogte Institute',
-    area: 'Vidyagiri',
-    sellerId: 'u_1',
-    sellerName: 'Nisha Patil',
-    sellerVerified: true,
-    image: makeListingArt('BAG', '#a78bfa', '#1f2937'),
-    images: [
-      makeListingArt('BAG', '#a78bfa', '#1f2937'),
-      makeListingArt('TRAVEL', '#c4b5fd', '#111827')
-    ],
-    createdAt: '2026-11-04T11:25:00.000Z',
-    status: 'active',
-    featured: false
-  }
-];
+const listings = [];
 
 function isRecordActiveListing(item) {
   if (!item) return false;
@@ -295,7 +220,12 @@ app.get('/api/statistics/homepage', (req, res) => {
 });
 
 app.get('/api/categories', (req, res) => {
-  res.json({ items: categories });
+  const enrichedCategories = categories.map((category) => ({
+    ...category,
+    count: listings.filter(item => item.category === category.id && isRecordActiveListing(item)).length
+  }));
+
+  res.json({ items: enrichedCategories });
 });
 
 app.get('/api/listings', (req, res) => {
