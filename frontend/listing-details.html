@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listing details | BELAGO</title>
+    <meta name="description" content="View product details and seller information on BELAGO." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="detail-page">
     <header class="site-header lite-header">
-      <div class="container nav-wrap">
+      <div class="container header-main compact-header">
         <a href="/" class="brand">
           <span class="brand-mark">B</span>
           <span>BELAGO</span>
         </a>
-        <div class="nav-actions">
-          <a href="/explore" class="nav-link">Marketplace</a>
-          <a href="/sell" class="btn btn-primary">Sell</a>
+        <div class="header-tools">
+          <a href="/explore" class="header-link">Marketplace</a>
+          <a href="/sell" class="btn btn-primary header-btn">Sell</a>
         </div>
       </div>
     </header>
@@ -24,7 +28,10 @@
       <div id="listingDetail"></div>
       <section class="similar-section">
         <div class="section-head split-head">
-          <h2>Similar listings</h2>
+          <div>
+            <p class="eyebrow">SIMILAR</p>
+            <h2>Similar listings</h2>
+          </div>
         </div>
         <div id="similarListings" class="listing-grid"></div>
       </section>

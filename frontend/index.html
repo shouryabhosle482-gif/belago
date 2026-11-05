@@ -14,69 +14,81 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="/" class="brand">
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <span>Campus delivery for Belagavi students</span>
+          <span>Trusted student marketplace</span>
+        </div>
+      </div>
+
+      <div class="container header-main">
+        <a href="/" class="brand" aria-label="BELAGO home">
           <span class="brand-mark">B</span>
           <span>BELAGO</span>
         </a>
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="/" class="active">Home</a>
-          <a href="/explore">Explore</a>
-          <a href="#categories">Categories</a>
-          <a href="/sell">Sell</a>
-          <a href="#about">About</a>
-        </nav>
+        <div class="delivery-box">
+          <span class="delivery-label">Deliver to</span>
+          <strong>Belagavi, Karnataka</strong>
+        </div>
 
-        <div class="nav-actions">
-          <a href="/explore" class="nav-link" aria-label="Search marketplace">Explore</a>
-          <a href="/login" class="nav-link">Login</a>
-          <a href="/register" class="nav-link nav-link--primary">Sign Up</a>
-          <a href="/sell" class="btn btn-primary">List Item</a>
+        <form class="header-search" id="homeSearchForm" aria-label="Search marketplace">
+          <div class="search-scope">All</div>
+          <input type="text" id="homeSearchInput" placeholder="Search books, notes, electronics, hostel essentials..." />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div class="header-tools">
+          <a href="/login" class="header-link">Login</a>
+          <a href="/register" class="header-link header-link--accent">Sign Up</a>
+          <a href="/dashboard" class="header-link">Wishlist</a>
+          <a href="/sell" class="btn btn-primary header-btn">Sell</a>
+        </div>
+      </div>
+
+      <div class="subnav">
+        <div class="container subnav-inner" aria-label="Category navigation">
+          <a href="/explore">All Categories</a>
+          <a href="/explore?category=electronics">Electronics</a>
+          <a href="/explore?category=books">Books</a>
+          <a href="/explore?category=other">Fashion</a>
+          <a href="/explore?category=other">Furniture</a>
+          <a href="/explore?category=sports">Sports</a>
+          <a href="/explore?category=accessories">Accessories</a>
+          <a href="/explore?category=lab-materials">Hostel Essentials</a>
+          <a href="/explore">Explore Deals</a>
+          <a href="/sell">Sell on BELAGO</a>
         </div>
       </div>
     </header>
 
-    <main>
-      <section class="hero-section">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <span class="pill">BELAGO STUDENT MARKETPLACE</span>
-            <h1>Find it. Buy it. Sell it.<br /> <span class="theme-text">All on campus.</span></h1>
-            <p>
-              Discover affordable student essentials, find great deals and give your old stuff a new home in Belagavi, Karnataka.
-            </p>
+    <main class="shop-home">
+      <section class="hero-showcase">
+        <div class="container hero-layout">
+          <div class="promo-spotlight">
+            <div class="promo-badge">BELAGO Student Marketplace</div>
+            <h1>Find what you need for campus life.</h1>
+            <p>Smart deals on books, notes, laptops, gadgets, hostel essentials and everything in between—straight from students in Belagavi.</p>
 
-            <form class="hero-search" id="homeSearchForm">
-              <input type="text" id="homeSearchInput" placeholder="Search books, phones, bikes, electronics..." />
+            <form class="hero-search" id="homeSearchFormSecondary">
+              <input type="text" id="homeSearchInputSecondary" placeholder="Search books, notes, calculators, electronics..." />
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
 
-            <div class="location-pill">Belagavi, Karnataka</div>
-
-            <div class="hero-actions">
-              <a href="/explore" class="btn btn-primary">Explore Marketplace</a>
-              <a href="/sell" class="btn btn-secondary">Sell an Item</a>
-            </div>
-
-            <div class="stats-row" id="homepageStats" aria-live="polite">
+            <div class="hero-metrics" id="homepageStats" aria-live="polite">
               <div class="stat-card is-loading">
-                <div class="stat-icon" aria-hidden="true">▣</div>
                 <small>Total Listings</small>
                 <strong data-stat="totalListings">--</strong>
               </div>
               <div class="stat-card is-loading">
-                <div class="stat-icon" aria-hidden="true">◌</div>
                 <small>Active Listings</small>
                 <strong data-stat="activeListings">--</strong>
               </div>
               <div class="stat-card is-loading">
-                <div class="stat-icon" aria-hidden="true">⌂</div>
-                <small>Registered Students</small>
+                <small>Students</small>
                 <strong data-stat="registeredStudents">--</strong>
               </div>
               <div class="stat-card is-loading">
-                <div class="stat-icon" aria-hidden="true">✓</div>
                 <small>Verified Sellers</small>
                 <strong data-stat="verifiedSellers">--</strong>
               </div>
@@ -84,48 +96,59 @@
             <div class="stats-status" id="statsStatus">Loading live marketplace numbers…</div>
           </div>
 
-          <div class="hero-visual">
-            <div class="product-collage">
-              <div class="collage-card laptop-card">
-                <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='100%25' stop-color='%23312e81'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%2309111f'/%3E%3Crect x='36' y='36' width='728' height='528' rx='28' fill='url(%23g)' opacity='0.9'/%3E%3Ccircle cx='620' cy='130' r='120' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='180' cy='460' r='150' fill='rgba(255,255,255,0.08)'/%3E%3Cpath d='M190 440 L610 440' stroke='rgba(255,255,255,0.25)' stroke-width='10' stroke-linecap='round'/%3E%3Cpath d='M320 240 L480 240' stroke='rgba(255,255,255,0.25)' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M280 300 L520 300' stroke='rgba(255,255,255,0.2)' stroke-width='12' stroke-linecap='round'/%3E%3Ctext x='400' y='380' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='44' font-weight='700' fill='%23ffffff' letter-spacing='2'%3EBELAGO%3C/text%3E%3Ctext x='400' y='430' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='28' font-weight='600' fill='rgba(255,255,255,0.85)' letter-spacing='4'%3ELAPTOP%3C/text%3E%3C/svg%3E" alt="Laptop" />
-              </div>
-              <div class="collage-card book-card">
-                <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f59e0b'/%3E%3Cstop offset='100%25' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%2309111f'/%3E%3Crect x='36' y='36' width='728' height='528' rx='28' fill='url(%23g)' opacity='0.9'/%3E%3Ccircle cx='620' cy='130' r='120' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='180' cy='460' r='150' fill='rgba(255,255,255,0.08)'/%3E%3Cpath d='M190 440 L610 440' stroke='rgba(255,255,255,0.25)' stroke-width='10' stroke-linecap='round'/%3E%3Cpath d='M320 240 L480 240' stroke='rgba(255,255,255,0.25)' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M280 300 L520 300' stroke='rgba(255,255,255,0.2)' stroke-width='12' stroke-linecap='round'/%3E%3Ctext x='400' y='380' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='44' font-weight='700' fill='%23ffffff' letter-spacing='2'%3EBELAGO%3C/text%3E%3Ctext x='400' y='430' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='28' font-weight='600' fill='rgba(255,255,255,0.85)' letter-spacing='4'%3EBOOKS%3C/text%3E%3C/svg%3E" alt="Book" />
-              </div>
-              <div class="collage-card calculator-card">
-                <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%2322c55e'/%3E%3Cstop offset='100%25' stop-color='%230f766e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%2309111f'/%3E%3Crect x='36' y='36' width='728' height='528' rx='28' fill='url(%23g)' opacity='0.9'/%3E%3Ccircle cx='620' cy='130' r='120' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='180' cy='460' r='150' fill='rgba(255,255,255,0.08)'/%3E%3Cpath d='M190 440 L610 440' stroke='rgba(255,255,255,0.25)' stroke-width='10' stroke-linecap='round'/%3E%3Cpath d='M320 240 L480 240' stroke='rgba(255,255,255,0.25)' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M280 300 L520 300' stroke='rgba(255,255,255,0.2)' stroke-width='12' stroke-linecap='round'/%3E%3Ctext x='400' y='380' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='44' font-weight='700' fill='%23ffffff' letter-spacing='2'%3EBELAGO%3C/text%3E%3Ctext x='400' y='430' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='28' font-weight='600' fill='rgba(255,255,255,0.85)' letter-spacing='4'%3ECALC%3C/text%3E%3C/svg%3E" alt="Calculator" />
-              </div>
-              <div class="collage-card bag-card">
-                <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23a78bfa'/%3E%3Cstop offset='100%25' stop-color='%231f2937'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='600' fill='%2309111f'/%3E%3Crect x='36' y='36' width='728' height='528' rx='28' fill='url(%23g)' opacity='0.9'/%3E%3Ccircle cx='620' cy='130' r='120' fill='rgba(255,255,255,0.12)'/%3E%3Ccircle cx='180' cy='460' r='150' fill='rgba(255,255,255,0.08)'/%3E%3Cpath d='M190 440 L610 440' stroke='rgba(255,255,255,0.25)' stroke-width='10' stroke-linecap='round'/%3E%3Cpath d='M320 240 L480 240' stroke='rgba(255,255,255,0.25)' stroke-width='12' stroke-linecap='round'/%3E%3Cpath d='M280 300 L520 300' stroke='rgba(255,255,255,0.2)' stroke-width='12' stroke-linecap='round'/%3E%3Ctext x='400' y='380' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='44' font-weight='700' fill='%23ffffff' letter-spacing='2'%3EBELAGO%3C/text%3E%3Ctext x='400' y='430' text-anchor='middle' font-family='Segoe UI, Arial, sans-serif' font-size='28' font-weight='600' fill='rgba(255,255,255,0.85)' letter-spacing='4'%3EBAG%3C/text%3E%3C/svg%3E" alt="Bag" />
-              </div>
-            </div>
-            <div class="floating-badge badge-top">Student Verified</div>
-            <div class="floating-badge badge-mid">Affordable Deals</div>
-            <div class="floating-badge badge-bottom">Campus Community</div>
-          </div>
+          <aside class="promo-stack">
+            <article class="promo-card promo-card--feature">
+              <span class="promo-pill">Campus Deals</span>
+              <h2>Top picks for exam season</h2>
+              <p>Books, notes, calculators and prep gear from verified student sellers.</p>
+              <a href="/explore" class="text-link">Shop now →</a>
+            </article>
+
+            <article class="promo-card mini-card">
+              <span class="promo-pill promo-pill--soft">Hot this week</span>
+              <h3>Tech upgrades</h3>
+              <p>From laptops to accessories, save more on student essentials.</p>
+            </article>
+          </aside>
         </div>
       </section>
 
-      <section class="quick-access">
+      <section class="categories-section">
         <div class="container">
-          <div class="quick-grid">
-            <a href="/explore" class="quick-card">
-              <span class="quick-icon">◈</span>
-              <h3>Browse Products</h3>
-            </a>
-            <a href="/dashboard" class="quick-card">
-              <span class="quick-icon">▣</span>
-              <h3>My Offers</h3>
-            </a>
-            <a href="/dashboard" class="quick-card">
-              <span class="quick-icon">✓</span>
-              <h3>My Orders</h3>
-            </a>
-            <a href="/sell" class="quick-card">
-              <span class="quick-icon">＋</span>
-              <h3>Sell an Item</h3>
-            </a>
+          <div class="section-head split-head">
+            <div>
+              <p class="eyebrow">SHOP BY CATEGORY</p>
+              <h2>Browse campus essentials</h2>
+            </div>
+            <a href="/explore" class="text-link">Explore all →</a>
           </div>
+          <div class="category-grid" id="categoryGrid"></div>
+        </div>
+      </section>
+
+      <section class="shelf-section">
+        <div class="container">
+          <div class="section-head split-head">
+            <div>
+              <p class="eyebrow">FEATURED</p>
+              <h2>Popular campus deals</h2>
+            </div>
+            <a href="/explore" class="text-link">See more →</a>
+          </div>
+          <div class="listing-grid" id="featuredListings"></div>
+        </div>
+      </section>
+
+      <section class="shelf-section shelf-alt">
+        <div class="container">
+          <div class="section-head split-head">
+            <div>
+              <p class="eyebrow">NEW ARRIVALS</p>
+              <h2>Fresh listings from your campus network</h2>
+            </div>
+            <a href="/explore" class="btn btn-secondary">Browse all</a>
+          </div>
+          <div class="listing-grid" id="recentListings"></div>
         </div>
       </section>
 
@@ -133,102 +156,17 @@
         <div class="container">
           <div class="trust-grid">
             <article class="feature-box">
-              <h3>Verified Student Sellers</h3>
-              <p>Every listing is backed by a trusted student community network.</p>
+              <h3>Verified student sellers</h3>
+              <p>Each listing is backed by a trusted student community network.</p>
             </article>
             <article class="feature-box">
-              <h3>Secure Transaction Records</h3>
-              <p>Track payment and pickup details with transparent order history.</p>
+              <h3>Quick campus pickup</h3>
+              <p>Meet nearby, compare prices and complete your deal without hassle.</p>
             </article>
             <article class="feature-box">
-              <h3>Campus Pickup</h3>
-              <p>Arrange safe and simple pickup directly with your college network.</p>
+              <h3>Safe, simple discovery</h3>
+              <p>Find what you need, connect directly, and buy with confidence.</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="categories" class="categories-section">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">CATEGORIES</p>
-            <h2>EXPLORE CATEGORIES</h2>
-            <p>Everything students need, all in one place.</p>
-          </div>
-          <div class="category-grid" id="categoryGrid"></div>
-        </div>
-      </section>
-
-      <section class="featured-section">
-        <div class="container">
-          <div class="section-head split-head">
-            <div>
-              <p class="eyebrow">DEALS</p>
-              <h2>FEATURED STUDENT DEALS</h2>
-            </div>
-            <a href="/explore" class="text-link">View all listings →</a>
-          </div>
-          <div class="listing-grid" id="featuredListings"></div>
-        </div>
-      </section>
-
-      <section class="recent-section">
-        <div class="container">
-          <div class="section-head split-head">
-            <div>
-              <p class="eyebrow">LATEST</p>
-              <h2>RECENTLY ADDED</h2>
-            </div>
-            <a href="/explore" class="btn btn-secondary">View All Listings</a>
-          </div>
-          <div class="listing-grid" id="recentListings"></div>
-        </div>
-      </section>
-
-      <section id="how-it-works" class="process-section">
-        <div class="container">
-          <div class="section-head centered">
-            <p class="eyebrow">HOW IT WORKS</p>
-            <h2>HOW BELAGO WORKS</h2>
-          </div>
-          <div class="process-grid">
-            <article class="process-card">
-              <span>01</span>
-              <h3>DISCOVER</h3>
-              <p>Find products available in your student community.</p>
-            </article>
-            <article class="process-card">
-              <span>02</span>
-              <h3>CONNECT</h3>
-              <p>Chat directly with verified student sellers.</p>
-            </article>
-            <article class="process-card">
-              <span>03</span>
-              <h3>NEGOTIATE</h3>
-              <p>Send offers and negotiate prices with ease.</p>
-            </article>
-            <article class="process-card">
-              <span>04</span>
-              <h3>COMPLETE</h3>
-              <p>Pay and arrange safe campus pickup.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="why-section">
-        <div class="container why-grid">
-          <div>
-            <p class="eyebrow">WHY BELAGO</p>
-            <h2>Built for students who want better campus deals.</h2>
-          </div>
-          <div class="why-list">
-            <div>Student-focused marketplace</div>
-            <div>Affordable second-hand products</div>
-            <div>Direct seller communication</div>
-            <div>College-based discovery</div>
-            <div>Verified student accounts</div>
-            <div>Easy listing management</div>
           </div>
         </div>
       </section>
@@ -236,12 +174,12 @@
       <section class="cta-section">
         <div class="container cta-box">
           <div>
-            <p class="eyebrow">JOIN THE COMMUNITY</p>
-            <h2>YOUR OLD STUFF CAN BE SOMEONE ELSE'S NEXT BIG FIND.</h2>
+            <p class="eyebrow">SELL WITH BELAGO</p>
+            <h2>Turn your unused items into student cash.</h2>
           </div>
           <div class="cta-actions">
-            <a href="/register" class="btn btn-primary">Join BELAGO</a>
-            <a href="/sell" class="btn btn-secondary">List Your First Item</a>
+            <a href="/register" class="btn btn-primary">Create a listing</a>
+            <a href="/sell" class="btn btn-secondary">Start selling</a>
           </div>
         </div>
       </section>
@@ -251,7 +189,7 @@
       <a href="/">Home</a>
       <a href="/explore">Explore</a>
       <a href="/sell">Sell</a>
-      <a href="/dashboard">Dashboard</a>
+      <a href="/dashboard">Profile</a>
     </nav>
 
     <footer class="site-footer">

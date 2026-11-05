@@ -4,32 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore Marketplace | BELAGO</title>
+    <meta name="description" content="Browse student essentials, accessories and campus deals on BELAGO." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="dark-marketplace">
     <header class="site-header lite-header">
-      <div class="container nav-wrap">
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <span>Belagavi campus marketplace</span>
+          <span>Student verified deals</span>
+        </div>
+      </div>
+
+      <div class="container header-main">
         <a href="/" class="brand">
           <span class="brand-mark">B</span>
           <span>BELAGO</span>
         </a>
 
-        <nav class="main-nav">
-          <a href="/">Home</a>
-          <a href="/explore" class="active">Explore</a>
-          <a href="#">Categories</a>
-          <a href="#">How It Works</a>
-          <a href="/sell">Sell</a>
-          <a href="#">About</a>
-        </nav>
+        <div class="delivery-box">
+          <span class="delivery-label">Deliver to</span>
+          <strong>Belagavi, Karnataka</strong>
+        </div>
 
-        <div class="nav-actions">
-          <a href="/login" class="nav-link">Login</a>
-          <a href="/register" class="nav-link nav-link--primary">Sign Up</a>
-          <a href="/sell" class="btn btn-primary">List Item</a>
+        <form class="header-search" id="marketplaceSearchHeader" aria-label="Marketplace search">
+          <div class="search-scope">All</div>
+          <input id="searchInputHeader" type="text" placeholder="Search textbooks, calculators, hostel essentials..." />
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div class="header-tools">
+          <a href="/login" class="header-link">Login</a>
+          <a href="/register" class="header-link header-link--accent">Sign Up</a>
+          <a href="/sell" class="btn btn-primary header-btn">Sell</a>
+        </div>
+      </div>
+
+      <div class="subnav">
+        <div class="container subnav-inner">
+          <a href="/explore">All Categories</a>
+          <a href="/explore?category=electronics">Electronics</a>
+          <a href="/explore?category=books">Books</a>
+          <a href="/explore?category=other">Fashion</a>
+          <a href="/explore?category=other">Furniture</a>
+          <a href="/explore?category=sports">Sports</a>
+          <a href="/explore?category=accessories">Accessories</a>
+          <a href="/explore?category=lab-materials">Hostel Essentials</a>
         </div>
       </div>
     </header>
@@ -97,7 +120,7 @@
           <div class="results-topbar">
             <div>
               <p class="eyebrow">STUDENT ESSENTIALS</p>
-              <h1>BUY, SELL AND DISCOVER WITHIN YOUR STUDENT COMMUNITY.</h1>
+              <h1>Buy, sell and discover what your campus needs.</h1>
             </div>
             <div class="view-controls">
               <button class="chip active" type="button">Grid View</button>

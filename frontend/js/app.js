@@ -151,10 +151,13 @@ async function loadHomeContent() {
   }
 }
 
-document.getElementById('homeSearchForm')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const value = document.getElementById('homeSearchInput').value.trim();
-  window.location.href = `/explore${value ? `?q=${encodeURIComponent(value)}` : ''}`;
+document.querySelectorAll('.hero-search').forEach((form) => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = form.querySelector('input');
+    const value = input?.value.trim() || '';
+    window.location.href = `/explore${value ? `?q=${encodeURIComponent(value)}` : ''}`;
+  });
 });
 
 loadHomepageStats();

@@ -10,10 +10,19 @@ if (categorySelect) {
 }
 
 const searchInput = document.getElementById('searchInput');
+const headerSearchInput = document.getElementById('searchInputHeader');
+
 if (searchInput) searchInput.value = preSearch;
+if (headerSearchInput && !searchInput) headerSearchInput.value = preSearch;
 
 const resultCount = document.getElementById('resultCount');
 const grid = document.getElementById('marketplaceGrid');
+
+function syncSearchFields(sourceInput) {
+  if (!sourceInput) return;
+  const target = searchInput || headerSearchInput;
+  if (target) target.value = sourceInput.value;
+}
 
 function getQueryObject() {
   const category = categorySelect?.value || 'all';
@@ -90,6 +99,17 @@ document.getElementById('marketplaceSearch')?.addEventListener('submit', (event)
   loadMarketplace();
 });
 
+document.getElementById('marketplaceSearchHeader')?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (headerSearchInput && searchInput) {
+    searchInput.value = headerSearchInput.value.trim();
+  }
+  loadMarketplace();
+});
+
+headerSearchInput?.addEventListener('input', () => syncSearchFields(headerSearchInput));
+searchInput?.addEventListener('input', () => syncSearchFields(searchInput));
+
 document.getElementById('clearFilters')?.addEventListener('click', () => {
   document.getElementById('categoryFilter').value = 'all';
   document.getElementById('conditionFilter').value = '';
@@ -97,7 +117,8 @@ document.getElementById('clearFilters')?.addEventListener('click', () => {
   document.getElementById('maxPrice').value = '';
   document.getElementById('collegeFilter').value = '';
   document.getElementById('sortFilter').value = 'newest';
-  searchInput.value = '';
+  if (searchInput) searchInput.value = '';
+  if (headerSearchInput) headerSearchInput.value = '';
   loadMarketplace();
 });
 
