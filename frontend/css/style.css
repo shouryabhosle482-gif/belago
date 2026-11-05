@@ -1247,20 +1247,11 @@ a:focus-visible {
 }
 
 @media (max-width: 980px) {
-  .hero-grid,
-  .hero-layout,
-  .marketplace-shell,
-  .detail-card,
-  .why-grid {
-    grid-template-columns: 1fr;
+  .category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .quick-grid,
-  .category-grid,
-  .listing-grid,
-  .process-grid,
-  .trust-grid,
-  .footer-grid {
+  .listing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1271,17 +1262,21 @@ a:focus-visible {
 
 @media (max-width: 760px) {
   body {
-    padding-bottom: 74px;
+    padding-bottom: 20px;
   }
 
-  .main-nav,
-  .nav-link,
-  .icon-button,
-  .nav-actions .btn {
-    display: none;
+  .header-main {
+    flex-wrap: nowrap;
+    gap: 10px;
   }
 
-  .mobile-bar {
+  .header-search {
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .delivery-box {
     display: flex;
   }
 
@@ -1291,55 +1286,31 @@ a:focus-visible {
   .cta-box,
   .dashboard-top,
   .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
   }
 
-  .quick-grid,
   .category-grid,
   .listing-grid,
-  .process-grid,
   .trust-grid,
   .footer-grid,
-  .two-col,
-  .why-list {
-    grid-template-columns: 1fr;
+  .two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .hero-copy h1,
-  .promo-spotlight h1 {
-    font-size: 2.7rem;
+  .promo-spotlight h1,
+  .hero-copy h1 {
+    font-size: clamp(2.2rem, 8vw, 3.25rem);
   }
 
   .listing-actions,
   .detail-actions,
   .cta-actions {
-    flex-direction: column;
-  }
-
-  .results-topbar {
-    display: block;
-  }
-
-  .product-collage {
-    transform: scale(0.9);
-  }
-
-  .hero-section {
-    padding-top: 42px;
+    flex-direction: row;
   }
 
   .site-header {
-    min-height: 72px;
-  }
-
-  .header-search {
-    width: 100%;
-    max-width: none;
-  }
-
-  .delivery-box {
-    display: none;
+    min-height: auto;
   }
 }
 
