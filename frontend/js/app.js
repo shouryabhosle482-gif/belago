@@ -162,6 +162,41 @@ document.querySelectorAll('.hero-search').forEach((form) => {
   });
 });
 
+const promoSlides = Array.from(document.querySelectorAll('.promo-slide'));
+const promoDots = Array.from(document.querySelectorAll('.promo-dot'));
+const promoArrows = Array.from(document.querySelectorAll('.promo-arrow'));
+
+if (promoSlides.length > 0) {
+  let currentSlide = 0;
+
+  function showPromoSlide(index) {
+    currentSlide = (index + promoSlides.length) % promoSlides.length;
+
+    promoSlides.forEach((slide, slideIndex) => {
+      slide.classList.toggle('is-active', slideIndex === currentSlide);
+    });
+
+    promoDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('is-active', dotIndex === currentSlide);
+    });
+  }
+
+  promoDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showPromoSlide(index);
+    });
+  });
+
+  promoArrows.forEach((button) => {
+    button.addEventListener('click', () => {
+      const direction = button.dataset.direction === 'next' ? 1 : -1;
+      showPromoSlide(currentSlide + direction);
+    });
+  });
+
+  setInterval(() => showPromoSlide(currentSlide + 1), 5000);
+}
+
 loadHomepageStats();
 setInterval(() => loadHomepageStats(), 60000);
 loadHomeContent();

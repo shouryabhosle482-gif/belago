@@ -21,42 +21,74 @@
         </div>
       </div>
 
-      <div class="container header-main">
-        <a href="/" class="brand" aria-label="BELAGO home">
-          <span class="brand-mark">B</span>
-          <span>BELAGO</span>
-        </a>
+      <div class="desktop-header-wrap">
+        <div class="container desktop-header">
+          <a href="/" class="brand" aria-label="BELAGO home">
+            <span class="brand-mark">B</span>
+            <span>BELAGO</span>
+          </a>
 
-        <div class="delivery-box">
-          <span class="delivery-label">Deliver to</span>
-          <strong>Belagavi, Karnataka</strong>
+          <div class="delivery-box">
+            <span class="delivery-label">Deliver to</span>
+            <strong>Belagavi, Karnataka</strong>
+          </div>
+
+          <form class="header-search" id="homeSearchForm" aria-label="Search marketplace">
+            <div class="search-scope">All</div>
+            <input type="text" id="homeSearchInput" placeholder="Search books, notes, electronics, hostel essentials..." />
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+
+          <nav class="header-tools" aria-label="Account and shopping links">
+            <a href="/login" class="quick-link"><span>Hello, sign in</span><strong>Account</strong></a>
+            <a href="/dashboard" class="quick-link"><span>Saved items</span><strong>Wishlist</strong></a>
+            <a href="/dashboard" class="quick-link"><span>Messages</span><strong>Inbox</strong></a>
+            <a href="/sell" class="btn btn-primary header-btn">Sell</a>
+          </nav>
         </div>
 
-        <form class="header-search" id="homeSearchForm" aria-label="Search marketplace">
-          <div class="search-scope">All</div>
-          <input type="text" id="homeSearchInput" placeholder="Search books, notes, electronics, hostel essentials..." />
-          <button type="submit" class="btn btn-primary">Search</button>
-        </form>
-
-        <div class="header-tools">
-          <a href="/login" class="header-link">Login</a>
-          <a href="/register" class="header-link header-link--accent">Sign Up</a>
-          <a href="/dashboard" class="header-link">Wishlist</a>
-          <a href="/sell" class="btn btn-primary header-btn">Sell</a>
+        <div class="subnav">
+          <div class="container subnav-inner" aria-label="Category navigation">
+            <a href="/explore">All Categories</a>
+            <a href="/explore?category=used-textbooks-notes">Used Textbooks &amp; Notes</a>
+            <a href="/explore?category=pg">PG</a>
+            <a href="/explore?category=part-time-jobs">Part-Time Jobs</a>
+            <a href="/explore?category=events">Events</a>
+            <a href="/explore?category=used-items">Used Items</a>
+            <a href="/explore?category=tiffins">Tiffins</a>
+            <a href="/explore">Explore</a>
+          </div>
         </div>
       </div>
 
-      <div class="subnav">
-        <div class="container subnav-inner" aria-label="Category navigation">
-          <a href="/explore">All Categories</a>
+      <div class="mobile-header" aria-label="Mobile BELAGO header">
+        <div class="container mobile-header-row mobile-header-row--top">
+          <a href="/" class="brand" aria-label="BELAGO home">
+            <span class="brand-mark">B</span>
+            <span>BELAGO</span>
+          </a>
+          <div class="mobile-header-icons">
+            <a href="/login" aria-label="Account">👤</a>
+            <a href="/dashboard" aria-label="Wishlist">♡</a>
+            <a href="/dashboard" aria-label="Messages">✉</a>
+          </div>
+        </div>
+
+        <div class="container mobile-header-row mobile-header-row--search">
+          <form class="mobile-search" id="mobileSearchForm">
+            <input type="text" id="mobileSearchInput" placeholder="Search books, notes, jobs, PG..." />
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+        </div>
+
+        <div class="container mobile-category-strip" aria-label="Mobile category navigation">
+          <a href="/explore">All</a>
           <a href="/explore?category=used-textbooks-notes">Used Textbooks &amp; Notes</a>
           <a href="/explore?category=pg">PG</a>
           <a href="/explore?category=part-time-jobs">Part-Time Jobs</a>
           <a href="/explore?category=events">Events</a>
           <a href="/explore?category=used-items">Used Items</a>
           <a href="/explore?category=tiffins">Tiffins</a>
-          <a href="/explore">Explore Deals</a>
-          <a href="/sell">Sell on BELAGO</a>
         </div>
       </div>
     </header>
@@ -73,6 +105,11 @@
               <input type="text" id="homeSearchInputSecondary" placeholder="Search books, notes, calculators, electronics..." />
               <button type="submit" class="btn btn-primary">Search</button>
             </form>
+
+            <div class="hero-actions">
+              <a href="/explore" class="btn btn-primary">Explore Marketplace</a>
+              <a href="/sell" class="btn btn-secondary">Sell an Item</a>
+            </div>
 
             <div class="hero-metrics" id="homepageStats" aria-live="polite">
               <div class="stat-card is-loading">
@@ -96,18 +133,35 @@
           </div>
 
           <aside class="promo-stack">
-            <article class="promo-card promo-card--feature">
-              <span class="promo-pill">Campus Deals</span>
-              <h2>Top picks for exam season</h2>
-              <p>Books, notes, calculators and prep gear from verified student sellers.</p>
-              <a href="/explore" class="text-link">Shop now →</a>
-            </article>
-
-            <article class="promo-card mini-card">
-              <span class="promo-pill promo-pill--soft">Hot this week</span>
-              <h3>Tech upgrades</h3>
-              <p>From laptops to accessories, save more on student essentials.</p>
-            </article>
+            <div class="promo-carousel" aria-label="Promotional categories">
+              <article class="promo-slide is-active">
+                <span class="promo-pill">Used Textbooks &amp; Notes</span>
+                <h2>Study smarter with trusted student notes.</h2>
+                <p>Find affordable textbooks, solved guides, and study material shared by students across Belagavi.</p>
+                <a href="/explore?category=used-textbooks-notes" class="text-link">Explore notes →</a>
+              </article>
+              <article class="promo-slide">
+                <span class="promo-pill promo-pill--soft">PG</span>
+                <h2>Find a room that fits your routine.</h2>
+                <p>Browse student-friendly rooms, PG options, and nearby stay choices with cleaner, smarter filters.</p>
+                <a href="/explore?category=pg" class="text-link">Find PG →</a>
+              </article>
+              <article class="promo-slide">
+                <span class="promo-pill">Part-Time Jobs</span>
+                <h2>Flexible work that fits student life.</h2>
+                <p>Browse part-time openings in retail, cafés, tutoring, and campus-aligned work near you.</p>
+                <a href="/explore?category=part-time-jobs" class="text-link">See jobs →</a>
+              </article>
+              <div class="promo-controls" aria-label="Promotional carousel controls">
+                <button type="button" class="promo-arrow" data-direction="prev" aria-label="Previous banner">‹</button>
+                <div class="promo-dots" aria-label="Carousel dots">
+                  <button type="button" class="promo-dot is-active" aria-label="Slide 1"></button>
+                  <button type="button" class="promo-dot" aria-label="Slide 2"></button>
+                  <button type="button" class="promo-dot" aria-label="Slide 3"></button>
+                </div>
+                <button type="button" class="promo-arrow" data-direction="next" aria-label="Next banner">›</button>
+              </div>
+            </div>
           </aside>
         </div>
       </section>
@@ -129,12 +183,16 @@
         <div class="container">
           <div class="section-head split-head">
             <div>
-              <p class="eyebrow">FEATURED</p>
-              <h2>Popular campus deals</h2>
+              <p class="eyebrow">EXPLORE YOUR CAMPUS</p>
+              <h2>Popular student picks</h2>
             </div>
             <a href="/explore" class="text-link">See more →</a>
           </div>
-          <div class="listing-grid" id="featuredListings"></div>
+          <div class="empty-shelf">
+            <h3>No listings yet.</h3>
+            <p>Be the first to list something on BELAGO.</p>
+            <a href="/sell" class="btn btn-primary">Create Listing</a>
+          </div>
         </div>
       </section>
 
@@ -147,7 +205,11 @@
             </div>
             <a href="/explore" class="btn btn-secondary">Browse all</a>
           </div>
-          <div class="listing-grid" id="recentListings"></div>
+          <div class="empty-shelf empty-shelf--soft">
+            <h3>Nothing listed yet.</h3>
+            <p>Start the marketplace by posting your first item for students to discover.</p>
+            <a href="/sell" class="btn btn-primary">Sell on BELAGO</a>
+          </div>
         </div>
       </section>
 
